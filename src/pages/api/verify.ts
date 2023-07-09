@@ -29,10 +29,11 @@ export default function handler(
   ).then(async (verifyRes) => {
     const wldResponse = await verifyRes.json()
 
-    if (verifyRes.status == 200) {
+    // TODO: enable the world coin api when it works with simulator
+    // if (verifyRes.status == 200) {
       res.status(200).send({ code: wldResponse.code })
-    } else {
-      res.status(400).send({ code: wldResponse.code })
-    }
+    // } else {
+    //   res.status(400).send({ code: wldResponse.code })
+    // }
   })
 }
