@@ -27,7 +27,6 @@ import Loader from '~/components/Common/Loader'
 import { OriginalNFT } from '~/components/Anoni/Original'
 
 const STORAGE_API_KEY = process.env.NEXT_PUBLIC_STORAGE_API_KEY
-console.log(STORAGE_API_KEY)
 
 // NFT INFORMATION
 const nftName = 'originalAnoni'
@@ -237,7 +236,6 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
   }
 
   React.useEffect(() => {
-    console.log('discordName')
     window.addEventListener('storage', getDiscordHandleFromLocalStorage)
 
     return () => {
