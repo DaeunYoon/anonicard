@@ -27,6 +27,7 @@ import Loader from '~/components/Common/Loader'
 import { OriginalNFT } from '~/components/Anoni/Original'
 
 const STORAGE_API_KEY = process.env.NEXT_PUBLIC_STORAGE_API_KEY
+console.log(STORAGE_API_KEY)
 
 // NFT INFORMATION
 const nftName = 'originalAnoni'
@@ -131,21 +132,6 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
     functionName: 'totalSupply',
   })
 
-  let contractSettings = {}
-
-  // const {
-  //   config,
-  //   error: prepareError,
-  //   isError: isPrepareError,
-  // } = usePrepareContractWrite({
-  //   address: nftConfig.originalAnoni.address as `0x${string}`,
-  //   abi: OriginalAnoni.abi,
-  //   functionName: 'mint',
-  //   args: [uri],
-  //   chainId: polygon.id,
-  //   enabled: Boolean(uri),
-  // })
-
   const {
     config,
     error: prepareError,
@@ -244,7 +230,6 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
 
   const getDiscordHandleFromLocalStorage = () => {
     const localStorageName = localStorage.getItem('discordName')
-    console.log(localStorageName)
     if (localStorageName == null) {
       return
     }
@@ -252,6 +237,7 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
   }
 
   React.useEffect(() => {
+    console.log('discordName')
     window.addEventListener('storage', getDiscordHandleFromLocalStorage)
 
     return () => {
