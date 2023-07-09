@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useState, useEffect } from 'react'
 import {
   Path,
@@ -144,7 +144,7 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
     enabled: Boolean(uri),
   })
 
-  const { data, error, isError, write } = useContractWrite(config)
+  const { data, error, write } = useContractWrite(config)
 
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
@@ -245,6 +245,7 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
 
   return (
     <>
+      {discordName}
       {(isMinting || isLoading) && <Loader />}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-y-2">
