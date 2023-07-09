@@ -6,6 +6,7 @@ import Loader from "~/components/Common/Loader";
 
 export default function VerifyDiscord() {
   const router = useRouter();
+  const [discordName, setDiscordName] = React.useState("");
 
   const fetchDiscordData = async (tokenType: string, accessToken: string) => {
     let discordName = "";
@@ -18,6 +19,7 @@ export default function VerifyDiscord() {
 
       const { username } = data;
       discordName = username
+      setDiscordName(discordName)
     } catch (e) {
       console.log(e);
     }
@@ -25,9 +27,10 @@ export default function VerifyDiscord() {
     localStorage.setItem("discordName", discordName);
     window.dispatchEvent(new Event("storage"));
     setTimeout(() => {
-      close();
+      // close();
     }, 1000);
   }
+
 
   const getDiscordLogin = useMemo(
     () => {
@@ -43,6 +46,9 @@ export default function VerifyDiscord() {
   );
 
   return (
+    <>
+    {discordName}
     <Loader />
+    </>
   )
 }
