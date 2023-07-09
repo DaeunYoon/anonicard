@@ -245,7 +245,6 @@ const OriginalForm: React.FC<Props> = ({ onSuccess, oldData }) => {
 
   return (
     <>
-      {discordName}
       {(isMinting || isLoading) && <Loader />}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-y-2">
